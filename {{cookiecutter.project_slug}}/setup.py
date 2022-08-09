@@ -9,6 +9,12 @@ try: # for pip >= 10
 except ImportError: # for pip <= 9.0.3
     from pip.req import parse_requirements
 
+with open('README.rst') as readme_file:
+    readme = readme_file.read()
+
+with open('HISTORY.rst') as history_file:
+    history = history_file.read()
+
 ## workaround derived from: https://github.com/pypa/pip/issues/7645#issuecomment-578210649
 parsed_requirements = parse_requirements(
     'requirements/prod.txt',
