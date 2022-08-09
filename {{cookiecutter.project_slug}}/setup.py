@@ -1,17 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pip
+from setuptools import setup, find_packages
 
 try: # for pip >= 10
+    # noinspection PyProtectedMember
     from pip._internal.req import parse_requirements
 except ImportError: # for pip <= 9.0.3
     from pip.req import parse_requirements
-
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
 
 ## workaround derived from: https://github.com/pypa/pip/issues/7645#issuecomment-578210649
 parsed_requirements = parse_requirements(
@@ -24,9 +20,8 @@ parsed_test_requirements = parse_requirements(
     session='workaround'
 )
 
-
-requirements = [str(ir.req) for ir in parsed_requirements]
-test_requirements = [str(tr.req) for tr in parsed_test_requirements]
+requirements = [str(ir.requirement) for ir in parsed_requirements]
+test_requirements = [str(tr.requirement) for tr in parsed_test_requirements]
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
