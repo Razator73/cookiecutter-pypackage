@@ -7,11 +7,11 @@
   "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "pypi_username": "{{ cookiecutter.github_username }}",
   "version": "0.1.0",
-  "use_pytest": "y",
-  "use_black": "n",
-  "use_pypi_deployment_with_travis": "y",
-  "add_pyup_badge": "n",
+  "use_pytest (y/n)": "y",
+  "use_black (y/n)": "n",
+  "use_pypi_deployment_with_travis (y/n)": "n",
+  "add_pyup_badge (y/n)": "n",
   "command_line_interface": ["No command-line interface", "Click", "Argparse"],
-  "create_author_file": "y",
+  "create_author_file (y/n)": "y",
   "open_source_license": ["GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
 }
