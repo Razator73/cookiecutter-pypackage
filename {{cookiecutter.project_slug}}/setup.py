@@ -26,8 +26,12 @@ parsed_test_requirements = parse_requirements(
     session='workaround'
 )
 
-requirements = [str(ir.requirement) for ir in parsed_requirements]
-test_requirements = [str(tr.requirement) for tr in parsed_test_requirements]
+try:
+    requirements = [str(ir.requirement) for ir in parsed_requirements]
+    test_requirements = [str(tr.requirement) for tr in parsed_test_requirements]
+except AttributeError:
+    requirements = [str(ir.req) for ir in parsed_requirements]
+    test_requirements = [str(tr.req) for tr in parsed_test_requirements]
 
 {%- set license_classifiers = {
     'MIT license': 'License :: OSI Approved :: MIT License',
@@ -52,6 +56,8 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     description="{{ cookiecutter.project_short_description }}",
     {%- if 'no' not in cookiecutter.command_line_interface|lower %}
