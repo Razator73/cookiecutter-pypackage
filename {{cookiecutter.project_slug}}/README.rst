@@ -34,6 +34,15 @@ Features
 
 * TODO
 
+New Deploy
+--------
+
+* Run tests with ``tox``
+* Commit changes to git
+* Bump version with ``bump2version major|minor|patch``
+* Push to PyPi with ``make release``
+
+
 Credits
 -------
 
